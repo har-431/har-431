@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating HARSH</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        
+        #harsh {
+            position: absolute;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: red;
+            user-select: none; /* Prevent text selection */
+        }
+    </style>
+</head>
+<body>
+    <div id="harsh">HARSH</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const harshElement = document.getElementById('harsh');
+
+            // Function to generate random position for HARSH
+            function moveHarsh() {
+                const maxX = window.innerWidth - harshElement.clientWidth;
+                const maxY = window.innerHeight - harshElement.clientHeight;
+                const newX = Math.floor(Math.random() * maxX);
+                const newY = Math.floor(Math.random() * maxY);
+
+                harshElement.style.left = `${newX}px`;
+                harshElement.style.top = `${newY}px`;
+            }
+
+            // Initial positioning
+            moveHarsh();
+
+            // Move HARSH when clicked (attempt to catch)
+            harshElement.addEventListener('click', moveHarsh);
+
+            // Move HARSH periodically (optional)
+            setInterval(moveHarsh, 3000); // Moves every 3 seconds
+        });
+    </script>
+</body>
+</html>
